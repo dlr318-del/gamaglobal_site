@@ -53,20 +53,6 @@
     restart();
   }
 
-  function initForms() {
-    document.querySelectorAll('form[data-demo-form]').forEach(function (f) {
-      f.addEventListener('submit', function (e) {
-        e.preventDefault();
-        const msg = f.querySelector('.form-success');
-        if (msg) {
-          msg.hidden = false;
-          msg.textContent = 'Спасибо! Это демонстрационная форма прототипа: подключите адрес получателя или CRM, чтобы заявки действительно отправлялись.';
-        }
-        f.reset();
-      });
-    });
-  }
-
   function initScrollProgress() {
     const bar = document.getElementById('scroll-progress');
     if (!bar) return;
@@ -82,7 +68,6 @@
   function boot() {
     initBurger();
     initCarousel();
-    initForms();
     initScrollProgress();
   }
 
