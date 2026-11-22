@@ -1,0 +1,171 @@
+<!doctype html><html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Методика сравнения с моделью | GAMA</title>
+<meta name="description" content="Числовой пример и детали методики сравнения портфеля с модельным портфелем.">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/footer.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/hero.css">
+</head><body>
+
+<div id="site-header"></div>
+
+<main id="main-content">
+  <!-- Тот самый баннер с картинкой, как на risk.html -->
+  <section class="page-hero" style="--accent:#EF3E4A">
+    <div class="page-hero-inner">
+      <div>
+        <div class="breadcrumb"><a href="index.html">Главная</a> / Материалы</div>
+        <div class="page-kicker">Методика</div>
+        <h1>Методика сравнения с модельным портфелем</h1>
+        <p>Числовой пример и детали расчёта альфы, вкладов и распределения активов по категориям.</p>
+        <a class="btn-cta" href="javascript:history.back()">← Вернуться к отчету <svg viewBox="0 0 24 24"><path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></a>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="visual-orbit" style="--accent:#EF3E4A">
+          <div class="visual-core"></div>
+          <span class="visual-tag t1">Портфель</span>
+          <span class="visual-tag t2">Бенчмарк</span>
+          <span class="visual-tag t3">РЕЗУЛЬТАТ</span>
+        </div>
+      </div>
+    </div>
+  </section>
+ <section class="content-wrap">
+    <div class="split">
+      <div class="copy">
+        <div class="eyebrow">GAMA / Методика</div>
+        <h2>Как работает сравнение с моделью?</h2>
+        </div>
+      <div class="visual-panel" style="--accent:#EF3E4A">
+        <div class="visual-orbit" style="--accent:#EF3E4A">
+          <div class="visual-core"></div>
+          <span class="visual-tag t1">Портфель</span>
+          <span class="visual-tag t2">Бенчмарк</span>
+          <span class="visual-tag t3">РЕЗУЛЬТАТ</span>
+        </div>
+        <span class="visual-caption">Единая аналитическая среда</span>
+      </div>
+    </div>
+  </section>
+  <section class="content-wrap">
+    
+             
+        <h3>Алгоритм:</h3>
+        <ol style="margin-left: 20px; line-height: 1.6;">
+            <li>Все активы портфеля распределяются по категориям (акции, гос. облигации по дюрации, корп. облигации по дюрации, муниципальные облигации, денежные эквиваленты).</li>
+            <li>Для каждой категории рассчитывается <strong>вес</strong> (доля в общей стоимости портфеля без учёта доходов/расходов) <strong>на начальную дату</strong>.</li>
+            <li>С Мосбиржи загружаются исторические данные соответствующих индексов за тот же период.</li>
+            <li>Для каждого индекса рассчитывается <strong>годовая доходность</strong> за период отчёта.</li>
+            <li><strong>Вклад категории</strong> = Вес категории × Годовая доходность индекса.</li>
+            <li><strong>Доходность модели</strong> = Сумма вкладов всех категорий.</li>
+            <li><strong>Альфа (превышение)</strong> = Реальная доходность портфеля (MWR) − Доходность модели.</li>
+        </ol>
+
+        <h3>Числовой пример:</h3>
+        <div style="background:#f8fbff; border-left:4px solid #2f6690; padding:16px; margin:20px 0; border-radius:8px; font-family:monospace;">
+            <p><b>Портфель:</b> Акции 25% (индекс MCFTR +20% годовых), Облигации 30% (индекс +8% годовых), Деньги 25% (RUSFAR +4% годовых)</p>
+            <p><b>Вклад акций:</b> 0.25 × 20% = <b>5.00%</b><br>
+            <b>Вклад облигаций:</b> 0.30 × 8% = <b>2.40%</b><br>
+            <b>Вклад денег:</b> 0.25 × 4% = <b>1.00%</b><br>
+            <b>Доходность модели:</b> 5.00% + 2.40% + 1.00% = <b>8.40%</b><br>
+            <b>Реальная доходность портфеля (MWR):</b> 15.94%<br>
+            <b>Альфа (превышение):</b> 15.94% - 8.40% = <b>+7.54%</b></p>
+        </div>
+
+        <h3>На что обратить внимание при анализе:</h3>
+          <ul class="check-list">
+            <li><b>Положительная альфа</b> — ваш портфель показал результат выше модельного (индексов). Это может быть следствием удачного выбора бумаг или правильного timing ввода/вывода денег.</li>
+            <li><b>Отрицательная альфа</b> — модельный портфель оказался доходнее вашего. Стоит пересмотреть структуру или управление.</li>
+            <li>Если для какой-то категории нет индекса (например, корп. облигации до 1 года или муниципальные более 3 лет), она исключается из модели, что может искажать результат.</li>
+            <li>Денежные средства, депозиты и РЕПО сравниваются со ставкой <b>RUSFAR</b> (рыночная ставка overnight, отражает альтернативные издержки).</li>
+            <li><b>Правый клик</b> на строке категории показывает список всех бумаг, вошедших в эту категорию, с их MWR, дюрацией и стоимостью.</li>
+            <li>Чем крупнее вес категории, тем больше её влияние на итоговую доходность модели.</li>
+        </ul>
+        <p style="font-size:0.8rem; color:#666; margin-top:20px;">Данные индексов предоставлены Московской Биржей через публичное API (ISS). Доходность индексов рассчитана как годовая (аннуализированная) за период отчёта.</p>
+
+        <h3>Алгоритм распределения активов по категориям:</h3>
+        <ol style="margin-left: 20px; line-height: 1.6;">
+            <li>Сначала проверяется поле <b>«Тип актива»</b>.</li>
+            <li>Если «Тип актива» = <b>«Акции»</b>:
+                <ul>
+                    <li>подкатегория «Паи» (ПИФы, БПИФ, ETF) → <b>Денежные эквиваленты</b></li>
+                    <li>остальные акции → <b>Акции</b></li>
+                </ul>
+            </li>
+            <li>Если «Тип актива» = <b>«Облигации»</b>:
+                <ul>
+                    <li>«Категория балансового учета» содержит «ГЦБ» или «Государственные» → <b>Государственные облигации</b></li>
+                    <li>«Категория балансового учета» содержит «Корпоративные», «Субфед», «Гос. корпораций» или «Ипотеч» → <b>Корпоративные облигации</b></li>
+                    <li>«Категория балансового учета» содержит «Муницип» → <b>Муниципальные облигации</b></li>
+                </ul>
+            </li>
+            <li>Если «Тип актива» = <b>«Доходы/расходы»</b> → <b>Денежные эквиваленты</b></li>
+            <li>Если «Тип актива» = <b>«Депозиты»</b> → <b>Денежные эквиваленты</b></li>
+            <li>Если «Тип актива» = <b>«РЕПО»</b> → <b>Денежные эквиваленты</b></li>
+            <li>Если «Тип актива» = <b>«ДС»</b> или категория содержит «Брокерский счет»/«Расчетный счет» → <b>Денежные эквиваленты</b></li>
+        </ol>
+        
+        <p style="font-size:0.8rem; color:#666; margin-top:20px;">Соответствие категорий и биржевых индексов:</p>
+        <table style="width:100%; border-collapse:collapse; font-size:0.8rem; margin-top:10px;">
+            <thead>
+                <tr style="background:#f0f5fa; border-bottom:2px solid #d1e3f8;">
+                    <th style="padding:8px; text-align:left;">Категория актива</th>
+                    <th style="padding:8px; text-align:left;">Подкатегория (по дюрации)</th>
+                    <th style="padding:8px; text-align:left;">Индекс (ссылка на MOEX)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="border-bottom:1px solid #eee;">
+                    <td style="padding:8px;">Акции</td><td style="padding:8px;">—</td>
+                    <td style="padding:8px;"><a href="https://www.moex.com/ru/index/MCFTR/" target="_blank" style="color:#2f6690; text-decoration:underline;">MCFTR</a></td>
+                </tr>
+                <tr style="border-bottom:1px solid #eee;">
+                    <td style="padding:8px;" rowspan="3">Гос. облигации</td><td style="padding:8px;">до 1 года</td>
+                    <td style="padding:8px;"><a href="https://www.moex.com/ru/index/RUGBITR1Y/" target="_blank" style="color:#2f6690; text-decoration:underline;">RUGBITR1Y</a></td>
+                </tr>
+                <tr style="border-bottom:1px solid #eee;">
+                    <td style="padding:8px;">1–3 года</td>
+                    <td style="padding:8px;"><a href="https://www.moex.com/ru/index/RUGBITR3Y/" target="_blank" style="color:#2f6690; text-decoration:underline;">RUGBITR3Y</a></td>
+                </tr>
+                <tr style="border-bottom:1px solid #eee;">
+                    <td style="padding:8px;">3–5 лет</td>
+                    <td style="padding:8px;"><a href="https://www.moex.com/ru/index/RUGBITR5Y/" target="_blank" style="color:#2f6690; text-decoration:underline;">RUGBITR5Y</a></td>
+                </tr>
+                <tr style="border-bottom:1px solid #eee;">
+                    <td style="padding:8px;" rowspan="3">Корп. облигации</td><td style="padding:8px;">до 1 года</td>
+                    <td style="padding:8px;"><a href="https://www.moex.com/ru/index/RUCBITR1Y/" target="_blank" style="color:#2f6690; text-decoration:underline;">RUCBITR1Y</a></td>
+                </tr>
+                <tr style="border-bottom:1px solid #eee;">
+                    <td style="padding:8px;">1–3 года</td>
+                    <td style="padding:8px;"><a href="https://www.moex.com/ru/index/RUCBTR3YNS/" target="_blank" style="color:#2f6690; text-decoration:underline;">RUCBTR3YNS</a></td>
+                </tr>
+                <tr style="border-bottom:1px solid #eee;">
+                    <td style="padding:8px;">3–5 лет</td>
+                    <td style="padding:8px;"><a href="https://www.moex.com/ru/index/RUCBTR5YNS/" target="_blank" style="color:#2f6690; text-decoration:underline;">RUCBTR5YNS</a></td>
+                </tr>
+                <tr style="border-bottom:1px solid #eee;">
+                    <td style="padding:8px;" rowspan="2">Муниципальные</td><td style="padding:8px;">до 1 года</td>
+                    <td style="padding:8px;"><a href="https://www.moex.com/ru/index/RUMBITR1Y/" target="_blank" style="color:#2f6690; text-decoration:underline;">RUMBITR1Y</a></td>
+                </tr>
+                <tr style="border-bottom:1px solid #eee;">
+                    <td style="padding:8px;">1–3 года</td>
+                    <td style="padding:8px;"><a href="https://www.moex.com/ru/index/RUMBTR3YNS/" target="_blank" style="color:#2f6690; text-decoration:underline;">RUMBTR3YNS</a></td>
+                </tr>
+                <tr style="border-bottom:1px solid #eee;">
+                    <td style="padding:8px;">Денежные эквиваленты</td><td style="padding:8px;">—</td>
+                    <td style="padding:8px;"><a href="https://www.moex.com/ru/index/RUSFAR/" target="_blank" style="color:#2f6690; text-decoration:underline;">RUSFAR</a></td>
+                </tr>
+            </tbody>
+        </table>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="js/menu.js" defer></script>
+<script src="js/main.js" defer></script>
+</body></html>
